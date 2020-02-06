@@ -25,13 +25,13 @@ public class IssueReportChannelsController {
         this.issueReportChannelsService = issueReportChannelsService;
     }
 
-    @RequestMapping(value = "/issueReportChannels", method = RequestMethod.POST)
+    @PostMapping
     public IssueReportChannels createIssueReportChannels(@RequestBody @Valid final IssueReportChannels issueReportChannels) {
         LOGGER.debug("Received request to create the {}", issueReportChannels);
         return issueReportChannelsService.save(issueReportChannels);
     }
 
-    @RequestMapping(value = "/issueReportChannels", method = RequestMethod.GET)
+    @GetMapping
     public List<IssueReportChannels> listIssueReportChannelss() {
 		LOGGER.debug("Received request to list all issueReportChannelss");
         return issueReportChannelsService.getList();

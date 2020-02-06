@@ -1,7 +1,9 @@
 package br.net.triangulohackerspace.thsspaceapi.controller;
 
 import br.net.triangulohackerspace.thsspaceapi.domain.Cache;
+import br.net.triangulohackerspace.thsspaceapi.factory.SpaceServiceFactory;
 import br.net.triangulohackerspace.thsspaceapi.service.CacheService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,26 +24,29 @@ public class CacheController {
 
 	//private final SpaceServiceFactory<Cache, Long> spaceServiceFactory;
 
-	private final CacheService cacheService;
+	//private final CacheService cacheService;
+
+	//@Autowired
+	/*public CacheController(CacheService cacheService) {
+		this.cacheService = cacheService;
+	}*/
 
 	@Autowired
-	public CacheController(CacheService cacheService) {
-		this.cacheService = cacheService;
-	}
+	private SpaceServiceFactory<Cache, Long> spaceServiceFactory;
 
-	@RequestMapping(value = "/cache", method = RequestMethod.POST)
+	@PostMapping
 	public Cache createCache(@RequestBody @Valid final Cache cache) {
 		
 		LOGGER.debug("Received request to create the {}", cache);
-		//return spaceServiceFactory.getService(Services.Cache).save(cache);
-		return cacheService.save(cache);
+		return spaceServiceFactory.getService(Services.Cache).save(cache);
+		//return cacheService.save(cache);
 	}
 
-	@RequestMapping(value = "/cache", method = RequestMethod.GET)
+	@GetMapping
 	public List<Cache> listCaches() {
 		LOGGER.debug("Received request to list all caches");
-		//return spaceServiceFactory.getService(Services.Cache).getList();
-		return cacheService.getList();
+		return spaceServiceFactory.getService(Services.Cache).getList();
+		//return cacheService.getList();
 	}
 
 	@ExceptionHandler

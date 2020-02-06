@@ -2,6 +2,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 
 import br.net.triangulohackerspace.thsspaceapi.domain.User;
 import br.net.triangulohackerspace.thsspaceapi.repository.UserRepository;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.UserService;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
@@ -43,5 +44,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getList() {
         LOGGER.debug("Retrieving the list of all users");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 }

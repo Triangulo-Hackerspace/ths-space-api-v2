@@ -3,6 +3,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 import br.net.triangulohackerspace.thsspaceapi.domain.Location;
 import br.net.triangulohackerspace.thsspaceapi.repository.LocationRepository;
 import br.net.triangulohackerspace.thsspaceapi.service.LocationService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,5 +44,10 @@ public class LocationServiceImpl implements LocationService {
     public List<Location> getList() {
 		LOGGER.debug("Retrieving the list of all locations");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 }

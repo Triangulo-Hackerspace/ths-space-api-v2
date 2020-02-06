@@ -2,6 +2,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 
 import br.net.triangulohackerspace.thsspaceapi.domain.Spacefed;
 import br.net.triangulohackerspace.thsspaceapi.repository.SpacefedRepository;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.SpacefedService;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
@@ -44,5 +45,10 @@ public class SpacefedServiceImpl implements SpacefedService {
     public List<Spacefed> getList() {
 		LOGGER.debug("Retrieving the list of all spacefeds");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 }

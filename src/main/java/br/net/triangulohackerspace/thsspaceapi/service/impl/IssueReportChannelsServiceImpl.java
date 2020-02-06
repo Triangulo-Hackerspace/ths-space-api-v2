@@ -3,6 +3,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 import br.net.triangulohackerspace.thsspaceapi.domain.IssueReportChannels;
 import br.net.triangulohackerspace.thsspaceapi.repository.IssueReportChannelsRepository;
 import br.net.triangulohackerspace.thsspaceapi.service.IssueReportChannelsService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,11 @@ public class IssueReportChannelsServiceImpl implements IssueReportChannelsServic
     public List<IssueReportChannels> getList() {
 		LOGGER.debug("Retrieving the list of all issueReportChannelss");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 
 }

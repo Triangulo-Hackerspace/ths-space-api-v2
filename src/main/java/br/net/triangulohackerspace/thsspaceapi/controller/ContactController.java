@@ -29,13 +29,13 @@ public class ContactController {
 		this.contactService = contactService;
 	}
 
-	@RequestMapping(value = "/contact", method = RequestMethod.POST)
+	@PostMapping
 	public Contact createContact(@RequestBody @Valid final Contact contact) {
 		LOGGER.debug("Received request to create the {}", contact);
 		return contactService.save(contact);
 	}
 
-	@RequestMapping(value = "/contact", method = RequestMethod.GET)
+	@GetMapping
 	public List<Contact> listContacts() {
 		LOGGER.debug("Received request to list all contacts");
 		return contactService.getList();

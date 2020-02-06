@@ -6,6 +6,7 @@ import br.net.triangulohackerspace.thsspaceapi.domain.to.SensorTO;
 import br.net.triangulohackerspace.thsspaceapi.domain.to.SpaceApiTO;
 import br.net.triangulohackerspace.thsspaceapi.domain.to.StateTO;
 import br.net.triangulohackerspace.thsspaceapi.repository.*;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.SpaceService;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
@@ -73,6 +74,11 @@ public class SpaceServiceImpl implements SpaceService {
 	public List<Space> getList() {
 		LOGGER.debug("Retrieving the list of all spaces");
 		return repository.findAll();
+	}
+
+	@Override
+	public Services appliesTo() {
+		return null;
 	}
 
 	@Override

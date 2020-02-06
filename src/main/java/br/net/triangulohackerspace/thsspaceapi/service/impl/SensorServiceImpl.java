@@ -3,6 +3,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 import br.net.triangulohackerspace.thsspaceapi.domain.Sensor;
 import br.net.triangulohackerspace.thsspaceapi.repository.SensorRepository;
 import br.net.triangulohackerspace.thsspaceapi.service.SensorService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,11 @@ public class SensorServiceImpl implements SensorService {
     public List<Sensor> getList() {
 		LOGGER.debug("Retrieving the list of all sensors");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 
 }

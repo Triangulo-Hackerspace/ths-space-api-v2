@@ -26,13 +26,13 @@ public class SensorController {
 		this.sensorService = sensorService;
 	}
 
-	@RequestMapping(value = "/sensor", method = RequestMethod.POST)
+	@PostMapping
 	public Sensor createSensor(@RequestBody @Valid final Sensor sensor) {
 		LOGGER.debug("Received request to create the {}", sensor);
 		return sensorService.save(sensor);
 	}
 
-	@RequestMapping(value = "/sensor", method = RequestMethod.GET)
+	@GetMapping
 	public List<Sensor> listSensors() {
 		LOGGER.debug("Received request to list all sensors");
 		return sensorService.getList();

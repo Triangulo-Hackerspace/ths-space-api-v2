@@ -26,20 +26,20 @@ public class StateController {
         this.stateService = stateService;
     }
 
-    @RequestMapping(value = "/state/{userId}/{entry}", method = RequestMethod.POST)
-    public State createStateByUser(@RequestBody @Valid final State state, @PathVariable("userId") Long userId, @PathVariable("entry") String entry) {
+    @PostMapping(path = "/{userId}")
+    public State createStateByUser(@RequestBody @Valid final State state, @PathVariable("userId") Long userId, @RequestParam("entry") String entry) {
         LOGGER.debug("Received request to create the {}", state);
         return stateService.saveByUser(state, userId, entry);
     }
 
-    @RequestMapping(value = "/state", method = RequestMethod.POST)
+    @PostMapping
     public State createState(@RequestBody @Valid final State state) {
         LOGGER.debug("Received request to create the {}", state);
         return stateService.save(state);
     }
 
-    
-    @RequestMapping(value = "/states", method = RequestMethod.GET)
+
+    @GetMapping
     public List<StateTO> listStatesBySpace() {
 		LOGGER.debug("Received request to list all states");
         return stateService.getStateList();

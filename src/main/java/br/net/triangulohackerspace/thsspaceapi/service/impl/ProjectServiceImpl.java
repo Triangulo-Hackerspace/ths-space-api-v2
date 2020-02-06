@@ -3,6 +3,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 import br.net.triangulohackerspace.thsspaceapi.domain.Project;
 import br.net.triangulohackerspace.thsspaceapi.repository.ProjectRepository;
 import br.net.triangulohackerspace.thsspaceapi.service.ProjectService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,11 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> getList() {
 		LOGGER.debug("Retrieving the list of all projects");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 
 }

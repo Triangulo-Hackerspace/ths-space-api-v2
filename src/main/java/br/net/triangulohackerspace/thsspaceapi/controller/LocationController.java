@@ -25,13 +25,13 @@ public class LocationController {
         this.locationService = locationService;
     }
 
-    @RequestMapping(value = "/location", method = RequestMethod.POST)
+    @PostMapping
     public Location createLocation(@RequestBody @Valid final Location location) {
         LOGGER.debug("Received request to create the {}", location);
         return locationService.save(location);
     }
 
-    @RequestMapping(value = "/location", method = RequestMethod.GET)
+    @GetMapping
     public List<Location> listLocations() {
 		LOGGER.debug("Received request to list all locations");
         return locationService.getList();

@@ -8,4 +8,6 @@ public interface BusinessService<E, ID extends Serializable> {
     E save(E e);
 
     List<E> getList();
+
+    Services appliesTo();
 }

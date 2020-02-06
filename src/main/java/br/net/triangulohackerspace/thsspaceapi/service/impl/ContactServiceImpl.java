@@ -3,6 +3,7 @@ package br.net.triangulohackerspace.thsspaceapi.service.impl;
 import br.net.triangulohackerspace.thsspaceapi.domain.Contact;
 import br.net.triangulohackerspace.thsspaceapi.repository.ContactRepository;
 import br.net.triangulohackerspace.thsspaceapi.service.ContactService;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,5 +44,10 @@ public class ContactServiceImpl implements ContactService {
     public List<Contact> getList() {
         LOGGER.debug("Retrieving the list of all Contacts");
         return repository.findAll();
+    }
+
+    @Override
+    public Services appliesTo() {
+        return null;
     }
 }

@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/v1/temperatures")
+    @RequestMapping(path = "/v1/temperatures")
 public class TemperatureController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TemperatureController.class);
@@ -25,13 +25,13 @@ public class TemperatureController {
         this.temperatureService = temperatureService;
     }
 
-    @RequestMapping(value = "/temperature", method = RequestMethod.POST)
+    @PostMapping
     public Temperature createTemperature(@RequestBody @Valid final Temperature temperature) {
         LOGGER.debug("Received request to create the {}", temperature);
         return temperatureService.save(temperature);
     }
 
-    @RequestMapping(value = "/temperature", method = RequestMethod.GET)
+    @GetMapping
     public List<Temperature> listTemperatures() {
         LOGGER.debug("Received request to list all temperatures");
         return temperatureService.getList();

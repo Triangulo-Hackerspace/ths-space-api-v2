@@ -26,13 +26,13 @@ public class SpacefedController {
 		this.spacefedService = spacefedService;
 	}
 
-	@RequestMapping(value = "/spacefed", method = RequestMethod.POST)
+	@PostMapping
 	public Spacefed createSpacefed(@RequestBody @Valid final Spacefed spacefed) {
 		LOGGER.debug("Received request to create the {}", spacefed);
 		return spacefedService.save(spacefed);
 	}
 
-	@RequestMapping(value = "/spacefed", method = RequestMethod.GET)
+	@GetMapping
 	public List<Spacefed> listSpacefeds() {
 		LOGGER.debug("Received request to list all spacefeds");
 		return spacefedService.getList();

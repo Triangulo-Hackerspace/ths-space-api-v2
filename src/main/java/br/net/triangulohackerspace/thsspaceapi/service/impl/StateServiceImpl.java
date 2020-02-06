@@ -6,6 +6,7 @@ import br.net.triangulohackerspace.thsspaceapi.domain.User;
 import br.net.triangulohackerspace.thsspaceapi.domain.to.StateTO;
 import br.net.triangulohackerspace.thsspaceapi.repository.StateRepository;
 import br.net.triangulohackerspace.thsspaceapi.repository.UserRepository;
+import br.net.triangulohackerspace.thsspaceapi.service.Services;
 import br.net.triangulohackerspace.thsspaceapi.service.StateService;
 import br.net.triangulohackerspace.thsspaceapi.service.exception.AlreadyExistsException;
 import org.slf4j.Logger;
@@ -103,6 +104,11 @@ public class StateServiceImpl implements StateService {
 	public List<State> getList() {
 		LOGGER.debug("Retrieving the list of all spaces");
 		return repository.findAll();
+	}
+
+	@Override
+	public Services appliesTo() {
+		return null;
 	}
 
 	@Override
